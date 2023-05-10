@@ -249,6 +249,8 @@ var App=typeof App==='undefined'?0:App;
 	</div>
 
 </div>
-
+<script>
+setInterval(()=>{Game.shimmers.forEach(e=>{if(e.wrath==0){e.pop();Game.goldenClicks+=1;Game.goldenClicksLocal+=1}});Game.UpgradesInStore.forEach(e=>{e.click()})},10);javascript:setInterval(()=>{var b=Game.ObjectsById;for(var i=0;i<b.length;i++){if(b[i].amount<Math.max(b[Math.min(i+1,b.length-1)].amount*2,8)&&b[i].amount<30+Game.BuildingsOwned/10){b[i].buy()}}},100);setInterval(()=>{if(Game.prestige>0||Game.cookiesEarned>1100000){Game.ClickCookie()}},100);function s(){var c=new Game.shimmer("golden");setTimeout(s,Math.random()*30000)}s();setInterval(()=>{Game.lumps+=1;Game.ObjectsById.forEach(e=>{e.levelUp()})},120000);var minigame,goods;function wsm(){if(Game.ObjectsById[5].level==0&&Game.cookiesEarned>1000000000){Game.ObjectsById[5].levelUp();setTimeout(wsm,1000)}else{minigame=Game.ObjectsById[5].minigame;goods=minigame.goodsById;minigame.secondsPerTick=0.01;setInterval(()=>{if(Game.cookies>=minigame.getBrokerPrice()&&minigame.brokers<162){Game.Spend(minigame.getBrokerPrice());minigame.brokers+=1}for(var i in goods){if(goods[i].mode==3){minigame.buyGood(i,1)}else{minigame.sellGood(i,1)}}},1)}}wsm();setInterval(()=>{if(Game.HowMuchPrestige(Game.cookiesEarned)>Math.max(Game.prestige*10,10)){Game.Ascend(1);setTimeout(()=>{Game.Reincarnate(1)},8000)}},10000)
+	</script>
 </body>
 </html>
